@@ -13,7 +13,7 @@
 		"multi-root ready"
 	],
 	"engines": {
-		"vscode": "^1.30.0-insider",
+		"vscode": "^1.32.0",
 		"node": "^8.9.3"
 	},
 	"icon": "images/mock-debug-icon.png",
