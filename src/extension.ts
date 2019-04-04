@@ -34,6 +34,14 @@ export function activate(context: vscode.ExtensionContext) {
 		context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory('mock', factory));
 		context.subscriptions.push(factory);
 	}
+
+
+	vscode.debug.onDidStartDebugSession((e) => {
+		console.log(`Started debug session ${e.id}`);
+	})
+	vscode.debug.onDidReceiveDebugSessionCustomEvent((e) => {
+		console.log(`Got custom event from session ${e.session.id}`);
+	})
 }
 
 export function deactivate() {

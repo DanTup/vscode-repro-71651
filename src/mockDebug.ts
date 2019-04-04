@@ -3,6 +3,7 @@
  *--------------------------------------------------------*/
 
 import {
+	Event,
 	Logger, logger,
 	LoggingDebugSession,
 	InitializedEvent, TerminatedEvent, StoppedEvent, BreakpointEvent, OutputEvent,
@@ -131,6 +132,8 @@ export class MockDebugSession extends LoggingDebugSession {
 		this._runtime.start(args.program, !!args.stopOnEntry);
 
 		this.sendResponse(response);
+
+		this.sendEvent(new Event("foo", {}));
 	}
 
 	protected setBreakPointsRequest(response: DebugProtocol.SetBreakpointsResponse, args: DebugProtocol.SetBreakpointsArguments): void {
